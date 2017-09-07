@@ -1,0 +1,9 @@
+{
+    "name": "lenny",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Lenny\\": "src"
+        }
+    }
+}
