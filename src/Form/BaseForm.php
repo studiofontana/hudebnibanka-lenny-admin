@@ -87,7 +87,7 @@ class BaseForm extends \Nette\Application\UI\Form
 		}
 	}
 	
-	protected function attached($presenter)
+	protected function attached($presenter): void
 	{
 		parent::attached($presenter);
 
@@ -103,7 +103,7 @@ class BaseForm extends \Nette\Application\UI\Form
 	}
 
 
-	public function render(...$args) {
+	public function render(...$args): void {
 		$template = new FileTemplate($this->getPathToForm() . '/form.latte');
 		$template->registerFilter(new Engine());
 		$template->form = $this->name;

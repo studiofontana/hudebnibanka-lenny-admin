@@ -46,7 +46,7 @@ class Presenter extends \Nette\Application\UI\Presenter
 		}
 	}
 	
-	public function checkRequirements($element)
+	public function checkRequirements($element): void
 	{
 		$user = $this->user;
 
