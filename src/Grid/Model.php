@@ -5,8 +5,10 @@ namespace Lenny\Grid;
 use Lenny,
     Nette;
 
-class Model extends Nette\Object
+class Model
 {
+
+    use Nette\SmartObject;
 
 	public $database;
 	public $query;
