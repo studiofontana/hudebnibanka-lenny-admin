@@ -70,6 +70,10 @@ class BaseForm extends \Nette\Application\UI\Form
 				} catch(\Exception $e) {}
 			}
 		}
+
+        if (method_exists($this, 'init')) {
+            $this->init();
+        }
 	}
 
 	public function bindDynamic($entity)
@@ -84,15 +88,6 @@ class BaseForm extends \Nette\Application\UI\Form
 			}else if(isset($entity->$inputName)){
 				$input->setDefaultValue($entity->$inputName);
 			}
-		}
-	}
-	
-	protected function attached($presenter): void
-	{
-		parent::attached($presenter);
-
-		if (method_exists($this, 'init')) {
-			$this->init($presenter);
 		}
 	}
 
