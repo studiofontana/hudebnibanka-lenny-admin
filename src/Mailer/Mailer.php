@@ -16,10 +16,11 @@ use Nette\DI\Container;
 use Nette\Environment;
 use Nette\Mail\Message;
 use Nette\Mail\SendmailMailer;
-use Nette\Object;
 use Nette\Utils\DateTime;
 
-class Mailer extends Object {
+class Mailer {
+
+    use Nette\SmartObject;
 
 	private $params = array();
 

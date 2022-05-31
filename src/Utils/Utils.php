@@ -11,10 +11,11 @@ namespace Lenny\Utils;
 
 use Nette\Database\Table\ActiveRow;
 use Nette\DI\Container;
-use Nette\Object;
 use Nette\Utils\DateTime;
 
-class Utils extends Object {
+class Utils {
+    use Nette\SmartObject;
+
 	public static function parseResourceFiles($collection)
 	{
 		$files = array();
