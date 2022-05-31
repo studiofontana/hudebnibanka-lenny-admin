@@ -39,6 +39,10 @@ class BaseForm extends \Nette\Application\UI\Form
 	{
 		$this->entity = $entity;
 
+        if (method_exists($this, 'init')) {
+            $this->init();
+        }
+
 		if(!is_array($this->entity)) {
 		    foreach($this->entity as $k => $v) {
 		        if($this->entity->$k instanceof \MongoDB\Model\BSONArray) {
@@ -70,10 +74,6 @@ class BaseForm extends \Nette\Application\UI\Form
 				} catch(\Exception $e) {}
 			}
 		}
-
-        if (method_exists($this, 'init')) {
-            $this->init();
-        }
 	}
 
 	public function bindDynamic($entity)
