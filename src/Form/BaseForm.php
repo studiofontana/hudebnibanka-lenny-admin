@@ -19,6 +19,11 @@ class BaseForm extends \Nette\Application\UI\Form
 	public function __construct(Nette\DI\Container $container)
 	{
 		$this->container = $container;
+        $this->monitor(Nette\Application\UI\Component::class, function ($form): void {
+            if (method_exists($this, 'init')) {
+                $this->init();
+            }
+        });
 	}
 
 	// public function __construct($parent = NULL, $name = NULL)
@@ -38,10 +43,6 @@ class BaseForm extends \Nette\Application\UI\Form
 	public function bind($entity)
 	{
 		$this->entity = $entity;
-
-        if (method_exists($this, 'init')) {
-            $this->init();
-        }
 
 		if(!is_array($this->entity)) {
 		    foreach($this->entity as $k => $v) {
